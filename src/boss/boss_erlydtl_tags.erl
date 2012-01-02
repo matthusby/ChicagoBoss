@@ -36,13 +36,10 @@ language(Variables, Options) ->
             ({K, V}) when is_binary(V) -> {K, binary_to_list(V)}; 
             ({K, V}) -> {K, V} 
         end, Variables),
-    io:format("Vars: ~p~n", [Variables]),
-    io:format("Options: ~p~n", [Options]),
     Value = proplists:get_value(string, ListVars),
-    io:format("String: ~p~n", [Value]),
-    case boss_db:find(language, [{name, 'equals', "string"}]) of
+    case boss_db:find(language, [{name, 'equals', Value}]) of
         [Result] ->
-            Result;
+            Result:value();
         [] ->
             ok
     end.
