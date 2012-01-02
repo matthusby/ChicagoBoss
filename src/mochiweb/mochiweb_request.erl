@@ -44,7 +44,7 @@
 -define(IDLE_TIMEOUT, 10000).
 
 % Maximum recv_body() length of 1MB
--define(MAX_RECV_BODY, (1024*1024)).
+-define(MAX_RECV_BODY, (1024*1024*25)).
 
 %% @spec get_header_value(K) -> undefined | Value
 %% @doc Get the value of a given request header.
